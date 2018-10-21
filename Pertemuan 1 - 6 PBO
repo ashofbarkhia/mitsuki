@@ -1,0 +1,432 @@
+#CLASS & OBJECT
+Objek.
+Yang dimaksud dengan objek pada java adalah sekumpulan software yang terdiri dari variable dan method-method yang terkait. Objek juga merupakan benda nyata yang di buat berdasarkan rancangan yang di definisikan di dalam class
+
+Object adalah instance dari class. Jika class secara umum mepresentasikan (template) sebuah object, sebuah instance adalah representasi nyata dari class itu sendiri. Contoh : Dari class Fruit kita dapat membuat object Mangga, Pisang, Apel, dan lain-lain.
+
+Class
+Class adalah prototype, atau blueprint, atau rancangan yang mendefinisikan variable dan method-methode pada seluruh objek tertentu. Class berfungsi untuk menampung isi dari program yang akan di jalankan, di dalamnya berisi atribut / type data dan method untuk menjalankan suatu program.
+
+Class merupakan suatu blueprint atau cetakan untuk menciptakan suatu instant dari  object. class juga merupakan grup suatu object dengan kemiripan attributes/properties, behaviour dan relasi ke object lain. Contoh : Class Person, Vehicle, Tree, Fruit dan lain-lain.
+
+Method
+Method adalah kumpulan program yang mempunyai nama. Method merupakan sarana bagi programmer untuk memecah program menjadi bagian-bagian yang kecil agar jadi lebih kompleks sehingga dapat di gunakan berulang-ulang.
+
+Method merupakan suatu operasi berupa fungsi-fungsi yang dapat dikerjakan oleh suatu object. Method didefinisikan pada class akan tetapi dipanggil melalui object. Contoh, pada object pear : terdapat method ambilRasa , kupasKulit dan lainlain
+
+Contoh (1)
+class Kubus :
+    def __init__(self,s):
+        self.sisi = s
+    def tampilkan(self):
+        print(self.sisi)
+    def Luas(self):
+        print("Luas =",self.sisi**2)
+    def LuasPermukaan(self):
+        print ("Luas Permukaan =",6*self.sisi**2)
+    def Volume(self):
+        print ("Volume =",self.sisi**3)
+
+K1=Kubus(4)
+K1.tampilkan()
+K1.Luas()
+K1.LuasPermukaan()
+K1.Volume()
+
+Contoh (2)
+class Lingkaran :
+    def __init__(self,r):
+        self.jari = r
+    def tampilkan(self):
+        print("jari-jari=",self.jari)
+    def luas1(self):
+        print("luas lingkaran1=",22/7*self.jari**2)
+    def luas2(self):
+        print("luas lingkaran2=",3.14*self.jari**2,"cm")
+    def keliling1(self):
+        print("Keliling lingkaran1=",2*22/7*self.jari)
+    def keliling2(self):
+        print("Keliling lingkaran2=",2*3.14*self.jari)
+
+L1=Lingkaran(10)
+L1.tampilkan()
+L1.luas1()
+L1.luas2()
+L1.keliling1()
+L1.keliling2()
+
+#INHERITANCE
+Dalam pemrograman berorientasi objek, pewarisan adalah mekanisme mendasarkan objek atau kelas ke objek atau kelas lain, mempertahankan implementasi yang serupa. Dalam sebagian besar bahasa berorientasi objek berbasis kelas, objek yang dibuat melalui warisan memperoleh semua properti dan perilaku objek induk.
+
+Inheritance atau Pewarisan/Penurunan adalah konsep pemrograman dimana sebuah class dapat ‘menurunkan’ property dan method yang dimilikinya kepada class lain. Konsep inheritance digunakan untuk memanfaatkan fitur ‘code reuse’ untuk menghindari duplikasi kode program.
+Konsep inheritance membuat sebuah struktur atau ‘hierarchy’ class dalam kode program. Class yang akan ‘diturunkan’ bisa disebut sebagai class induk (parent class), super class, atau base class. Sedangkan class yang ‘menerima penurunan’ bisa disebut sebagai class anak (child class), sub class, derived class atauheir class.
+Tidak semua property dan method dari class induk akan diturunkan. Property dan method dengan hak akses private, tidak akan diturunkan kepada class anak. Hanya property dan method dengan hak akses protected dan public saja yang bisa diakses dari class anak.
+
+Contoh (1)
+class User: 
+	name = "" 
+	def __init__(self, name): 
+		self.name = name 
+	def printName(self): print (("Name =")+ self.name)
+
+class Programmer(User): 
+	def __init__(self, name): 
+		self.name = name 
+	def doPython(self): 
+		print ("Programming Python") 
+brian = User("brian") 
+brian.printName() 
+diana = Programmer("Diana") 
+diana.printName() 
+diana.doPython()
+
+class Fish: 
+	def __init__(self, first_name, last_name="Fish"): 
+		self.first_name = first_name 
+		self.last_name = last_name
+class Fish: 
+	def __init__(self, first_name, last_name="Fish"): 
+		self.first_name = first_name 
+		self.last_name = last_name 
+	def swim(self): 
+		print("The fish is swimming.") 
+	def swim_backwards(self): 
+		print("The fish can swim backwards.") 
+class Fish: 
+	def __init__(self, first_name, last_name="Fish", skeleton="bone", eyelids=False): 
+		self.first_name = first_name 
+		self.last_name = last_name 
+		self.skeleton = skeleton 
+		self.eyelids = eyelids 
+	def swim(self): 
+		print("The fish is swimming.") 
+	def swim_backwards(self): 
+		print("The fish can swim backwards.") 
+
+class Trout(Fish): pass
+
+terry = Trout("Terry") 
+print(terry.first_name + " " + terry.last_name) 
+print(terry.skeleton) 
+print(terry.eyelids) 
+terry.swim() 
+terry.swim_backwards() 
+
+#TYPE OF INHERITANCE
+INHERITANCE = Pewarisan/Penurunan adalah konsep pemrograman dimana sebuah class dapat 'menurunkan' property dan method yang dimilikinya kepada class lain.
+
+(1) Default: property, property dan method
+class Fish: 
+	def __init__(self, first_name, last_name="Fish", skeleton="bone", eyelids=False): 
+		self.first_name = first_name 
+		self.last_name = last_name 
+		self.skeleton = skeleton 
+		self.eyelids = eyelids 
+	def swim(self): 
+		print("The fish is swimming.") 
+	def swim_backwards(self): 
+		print("The fish can swim backwards.") 
+class Trout (Fish): pass 
+class Clownfish(Fish): 
+	def live_with_anemone(self): 
+		print("The clownfish is coexisting with sea anemone.") 
+
+(2) Overriding: property/method, property dan method
+Overriding : kelas anak dapat memodifikasi nilai property/method pada kelas induk
+class Fish: 
+	def __init__(self, first_name, last_name="Fish", skeleton="bone", eyelids=False): 
+		self.first_name = first_name 
+		self.last_name = last_name 
+		self.skeleton = skeleton 
+		self.eyelids = eyelids 
+	def swim(self): 
+		print("The fish is swimming.") 
+	def swim_backwards(self): 
+		print("The fish can swim backwards.") 
+class Shark(Fish): 
+	def __init__(self, first_name, last_name="Shark", skeleton="cartilage", eyelids=True): 
+		self.first_name = first_name 
+		self.last_name = last_name 
+		self.skeleton = skeleton 
+		self.eyelids = eyelids 
+	def swim_backwards(self): 
+		print("The shark cannot swim backwards, but can sink backwards.") 
+
+(3) Super: property
+Fungsi super () paling sering digunakan dalam metode __init __ () karena itu adalah di mana Anda kemungkinan besar perlu menambahkan beberapa keunikan ke kelas anak dan kemudian menyelesaikan inisialisasi dari orang tua
+... 
+class Trout(Fish): 
+	def __init__(self, water = "freshwater"): 
+		self.water = water 
+		super().__init__(self) 
+		Fish.__init__(self)
+class Trout(Fish):
+        def __init__(self,water,first_name, last_name,skeleton,eyelids):
+        self.water = water
+        Fish.__init__(self,first_name, last_name,skeleton, eyelids)
+        super().__init__(self,first_name, last_name,skeleton, eyelids)
+
+terry = Trout("freshwater","shark","fish","no bone","true")
+print(terry.first_name)
+terry = Trout() 
+terry.first_name = "Terry" 
+print(terry.first_name + " " + terry.last_name) 
+print(terry.eyelids) 
+print(terry.water) 
+terry.swim() 
+
+(4) Multiple inheritance adalah ketika kelas dapat mewarisi atribut dan metode dari lebih dari satu kelas induk.
+class Coral: 
+	def community(self): 
+		print("Coral lives in a community.") 
+
+class Anemone: 
+	def protect_clownfish(self): 
+		print("The anemone is protecting the clownfish.") 
+
+class CoralReef(Coral, Anemone): 	pass 
+great_barrier = CoralReef() 
+great_barrier.community() 
+great_barrier.protect_clownfish() 
+
+#POLYMORPHISME
+Terkadang suatu objek datang dalam banyak tipe atau bentuk. Jika kita memiliki tombol, ada banyak hasil imbang yang berbeda (tombol bulat, tombol cek, tombol persegi, tombol dengan gambar) tetapi mereka berbagi logika yang sama: onClick (). Kami mengaksesnya menggunakan metode yang sama.
+Ide ini disebut Polymorphism.
+
+class Shark():
+    def swim(self):
+        print("The shark is swimming.")
+    def swim_backwards(self):
+        print("The shark cannot swim backwards, but can sink backwards.")
+    def skeleton(self):
+        print("The shark's skeleton is made of cartilage.")
+
+class Clownfish():
+    def swim(self):
+        print("The clownfish is swimming.")
+    def swim_backwards(self):
+        print("The clownfish can swim backwards.")
+    def skeleton(self):
+        print("The clownfish's skeleton is made of bone.")
+
+sammy = Shark()
+sammy.skeleton()
+
+casey = Clownfish()
+casey.skeleton()
+
+Polymorphism with a Function
+
+class Shark(): 
+	def swim(self): 
+		print("The shark is swimming.") 
+	def swim_backwards(self): 
+		print("The shark cannot swim backwards, but can sink backwards.") 
+	def skeleton(self): 
+		print("The shark's skeleton is made of cartilage.") 
+
+class Clownfish(): 
+	def swim(self): 
+		print("The clownfish is swimming.") 
+	def swim_backwards(self): 
+		print("The clownfish can swim backwards.") 
+	def skeleton(self): 
+		print("The clownfish's skeleton is made of bone.") 
+def in_the_pacific(fish): 
+	fish.swim() 
+
+sammy = Shark() 
+casey = Clownfish() 
+
+in_the_pacific(sammy) 
+in_the_pacific(casey) 
+
+Polymorphism with Class Methods
+
+sammy = Shark()
+casey = Clownfish()
+
+for fish in (sammy, casey):
+    fish.swim()
+    fish.swim_backwards()
+    fish.skeleton()
+    
+class Document:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+class Pdf(Document):
+    def show(self):
+        return 'Show pdf contents!'
+
+class Word(Document):
+    def show(self):
+        return 'Show word contents!'
+
+documents = [Pdf('Document1'),
+             Pdf('Document2'),
+             Word('Document3')]
+
+for document in documents:
+    print(document.name + ': ' + document.show())
+class Car:
+    def __init__(self, name):
+        self.name = name
+
+    def drive(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+    def stop(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+class Sportscar(Car):
+    def drive(self):
+        return 'Sportscar driving!'
+
+    def stop(self):
+        return 'Sportscar braking!'
+
+class Truck(Car):
+    def drive(self):
+        return 'Truck driving slowly because heavily loaded.'
+
+    def stop(self):
+        return 'Truck braking!'
+
+
+cars = [Truck('Bananatruck'),
+        Truck('Orangetruck'),
+        Sportscar('Z3')]
+
+for car in cars:
+    print(car.name + ': ' + car.drive())
+
+# Operator dan Method Overloading
+mendefinisikan dua metode produk,tapi kita hanya bisa menggunakan metode produk kedua,karena python tidak mendukung metode overloading.
+Kami dapat mendefinisikan banyak metode dengan nama yang sama dan argumen yang berbeda tetapi kami hanya dapat menggunakan metode terbaru yang ditentukan.
+Memanggil metode lain akan menghasilkan kesalahan.
+
+Method Overloading
+def add(a,b):
+    return a+b
+def add(a,b,c):
+    return a+b+c
+print(add(2,3,5))
+
+Menentukan metode dengan banyak cara untuk memanggilnya.
+Dengan metode atau fungsi tunggal, kita dapat menentukan jumlah parameternya sendiri. Tergantung pada definisi fungsi, itu bisa disebut dengan nol, satu, dua atau lebih parameter.
+
+def add(datatype, *args):
+  if datatype =='int':
+        answer = 0
+  if datatype =='str':
+        answer =''
+   for x in args:
+        answer = answer + x
+    print(answer)
+# Integer
+add('int', 5, 6)
+# String
+add('str', 'Hi ', 'Geeks')
+
+class Human:
+    def sayHello(self, name=None):
+        if name is not None:
+            print('Hello ' + name)
+        else:
+            print('Hello ')
+# Create instance
+obj = Human()
+# Call the method
+obj.sayHello()
+# Call the method with a parameter
+obj.sayHello('Guido')
+
+Sebuah objek dibuat berdasarkan kelas, dan kita memanggil metodenya menggunakan nol dan satu parameter.Untuk memperjelas metode overloading, kita sekarang dapat memanggil metode
+
+sayHello() in two ways:
+obj.sayHello()
+obj.sayHello('Guido’)
+
+#ENCAPSULATION
+Encapsulation- informasi tersembunyi ? Properti & method privat diakses di luar kelas
+
+class A(object):
+	# public method
+	def myPublicMethod(self):
+		return "This is a public method"
+
+	# private method with single _underscore
+	def _myPrivateMethod(self):
+		return "This is a private method"
+
+	# private metod with double __undersore
+	def __myAnotherPrivateMethod(self):
+		return "This is another private Method"
+
+
+obj = A()
+# We can access the public method which is cool !!!
+print(obj.myPublicMethod())   #Output : This is a public method
+
+# Note that we can also access the private method from outside
+print(obj._myPrivateMethod()) #Output : This is a private method
+
+# However, You can still call the double underscore method
+# by appending the _class name before method name
+print(obj._A__myAnotherPrivateMethod()) #Output:This is another private Method
+
+class Robot(object):
+   def __init__(self):
+      self.__version = 22
+
+   def getVersion(self):
+      print(self.__version)
+
+   def setVersion(self, version):
+      self.__version = version
+
+obj = Robot()
+obj.getVersion()
+obj.setVersion(23)
+obj.getVersion()
+print(obj.__version)
+#print(obj._Robot__version)
+
+private methods __updateSoftware().  
+Fungsi ini tidak dapat dipanggil pada objek secara langsung, hanya dari dalam kelas.
+class Car:
+    def __init__(self):
+        self.__updateSoftware()
+    def drive(self):
+        print('driving')
+    def __updateSoftware(self):
+        print('updating software')
+
+redcar = Car()
+redcar.drive()
+#redcar.__updateSoftware()  not accesible from object.
+redcar._Car__updateSoftware()
+
+Variabel privat hanya dapat diubah dalam metode kelas dan bukan di luar kelas.
+class Car:
+    __maxspeed = 0
+    __name = ""
+    def __init__(self):
+        self.__maxspeed = 200
+        self.__name = "Supercar"
+    def drive(self):
+        print('driving. maxspeed ' + str(self.__maxspeed))
+redcar = Car()
+redcar.drive()
+redcar.__maxspeed = 10  # will not change variable because its private
+redcar.drive()
+
+Kita dapat membatasi akses ke metode dan variabel. Ini mencegah data dari modifikasi langsung yang disebut enkapsulasi.
+Konsep ini sedikit rumit untuk dijelaskan dengan contoh kita. Kaki kami diikat untuk membantu kami berjalan. Tangan kami, bantu kami memegang sesuatu. Pengikatan properti ke fungsi ini disebut Enkapsulasi.
+Ini menyembunyikan rincian pelaksanaan [tidak diperlukan untuk mengetahui] ini disebut enkapsulasi.
+
+TERIMA KASIH
